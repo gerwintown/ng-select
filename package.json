@@ -1,11 +1,15 @@
 {
-  "repository": "ng-select/ng-select",
+  "name": "@ng-select/ng-select",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/gerwintown/ng-select.git"
+  },
   "engines": {
     "node": ">= 6.9.0",
     "npm": ">= 3.0.0"
   },
   "scripts": {
-    "build": "ng build ng-select && yarn build:themes && yarn copy-sass",
+    "build": "ng build ng-select --preserve-symlinks && yarn build:themes && yarn copy-sass",
     "build:demo": "ng build demo --prod --baseHref=/ng-select && yarn copy-examples",
     "build:themes": "node-sass --output-style compressed src/ng-select/themes/ -o dist/ng-select/themes",
     "copy-sass": "mkdir -p dist/ng-select/scss && cp src/ng-select/**/*.scss dist/ng-select/scss",
@@ -59,5 +63,8 @@
     "tsickle": "^0.35.0",
     "tslint": "~5.18.0",
     "typescript": "~3.4.3"
-  }
+  },
+  "sideEffects": false,
+  "typings": "ng-select.d.ts",
+  "version": "2.10.5"
 }

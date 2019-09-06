@@ -3552,6 +3552,7 @@ class NgSelectTestCmp {
     filter = new Subject<string>();
     searchFn: (term: string, item: any) => boolean = null;
     selectOnTab = true;
+    //preventTabDefault = false;
     hideSelected = false;
 
     citiesLoading = false;

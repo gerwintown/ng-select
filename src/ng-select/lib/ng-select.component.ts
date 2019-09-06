@@ -92,6 +92,7 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
     @Input() closeOnSelect = true;
     @Input() hideSelected = false;
     @Input() selectOnTab = false;
+    @Input() preventTabDefault = true;
     @Input() openOnEnter: boolean;
     @Input() maxSelectedItems: number;
     @Input() groupBy: string | Function;
@@ -796,7 +797,9 @@ export class NgSelectComponent implements OnDestroy, OnChanges, AfterViewInit, C
         if (this.selectOnTab) {
             if (this.itemsList.markedItem) {
                 this.toggleItem(this.itemsList.markedItem);
-                $event.preventDefault();
+                if (this.preventTabDefault){
+                  $event.preventDefault();
+                }
             } else if (this.showAddTag) {
                 this.selectTag();
                 $event.preventDefault();
